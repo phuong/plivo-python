@@ -34,7 +34,7 @@ Run `python tests.py`
 Installation
 -------------------
 
-    pip install plivo
+    pip install plivo-six
 
 
 Building docs
