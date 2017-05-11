@@ -6,13 +6,13 @@ if sys.version_info < (2, 6):
     requires.append('simplejson')
 
 setup(
-    name = "plivo",
+    name = "plivo-six",
     py_modules = ['plivo', "plivoxml"],
     version = "0.11.3",
     description = "Plivo Python library",
     author = "Plivo Team",
     author_email = "hello@plivo.com",
-    url = "https://github.com/plivo/plivo-python",
+    url = "https://github.com/phuong/plivo-python",
     keywords = ["plivo", "rest"],
     install_requires = requires,
     classifiers = [
