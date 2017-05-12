@@ -2,6 +2,8 @@ import xml.etree.ElementTree as etree
 import six
 import sys
 
+PY3 = sys.version_info[0] == 3
+
 class PlivoError(Exception):
     pass
 
@@ -44,10 +46,16 @@ class Element(object):
         raise PlivoError('%s not nestable in %s' % (element.name, self.name))
 
     def to_xml(self):
-        return etree.tostring(self.node, encoding="utf-8")
+        if PY3:
+            return etree.tostring(self.node, encoding="unicode")
+        else:
+            return etree.tostring(self.node, encoding="utf-8")
 
     def __str__(self):
-        return self.to_xml()
+        xml = self.to_xml()
+        if isinstance(xml, bytes):
+            return xml.decode('utf-8')
+        return xml
 
     def __repr__(self):
         return self.to_xml()
