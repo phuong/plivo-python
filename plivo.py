@@ -107,7 +107,7 @@ class RestAPI(object):
             try:
                 if isinstance(content, bytes):
                     content = content.decode()
-                response = json.loads(content.decode("utf-8"))
+                response = json.loads(content)
             except ValueError:
                 response = content
         else:
